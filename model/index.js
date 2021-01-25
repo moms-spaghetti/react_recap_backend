@@ -307,7 +307,7 @@ const getUniqueNonSocLecturer = async () => {
 };
 
 const getTotalVideoCount = async () => {
-  const sql = `SELECT COUNT(*) FROM videos`;
+  const sql = `SELECT COUNT(*) FROM ${config.DATABASE_VIDEOS}`;
   const repsonse = await query(sql);
   return repsonse.rows;
 };
@@ -315,7 +315,7 @@ const getTotalVideoCount = async () => {
 const getVideosPagination = async (params) => {
   const { paging, position } = params;
   const updPosition = (position - 1) * paging;
-  const sql = `SELECT * FROM videos
+  const sql = `SELECT * FROM ${config.DATABASE_VIDEOS}
                LIMIT $1
                OFFSET $2`;
   const response = await query(sql, [paging, updPosition]);
@@ -323,7 +323,7 @@ const getVideosPagination = async (params) => {
 };
 
 const getAdminUsers = async () => {
-  const sql = `SELECT * FROM admins`;
+  const sql = `SELECT * FROM ${config.DATABASE_ADMINS}`;
   const response = await query(sql);
   return response.rows;
 };

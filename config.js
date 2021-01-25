@@ -5,6 +5,7 @@ const config = {
   DATABASE_FEEDBACK: `feedbacktable`,
   DATABASE_TAGKEYSEQ: `tags_key_seq`,
   DATABASE_LECTURERKEYSEQ: `lecturers_key_seq`,
+  DATABASE_ADMINS: `admins`,
 };
 
 module.exports = {

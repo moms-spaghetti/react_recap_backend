@@ -1,10 +1,4 @@
 const { query } = require("../index");
-// const { Pool } = require("pg");
-
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: { rejectUnauthorized: false },
-// });
 
 const drop = `
   DROP TABLE IF EXISTS admins, videos, tags, lecturers, feedbacktable;
@@ -82,20 +76,6 @@ async function createTables() {
   console.log(res.command);
   res = await query(populateAdmin);
   console.log(res.command);
-  // TABLES.forEach((table) => {
-  //   return new Promise((resolve, reject) => {
-  //     pool.query(table, undefined, (err, data) => {
-  //       if (err) {
-  //         reject(err); // calling `reject` will cause the promise to fail with or without the error passed as an argument
-  //         return; // and we don't want to go any further
-  //       }
-  //       resolve(data);
-  //       console.log(data.command);
-  //     });
-  //   });
-  // });
 }
 
 createTables();
-//
-//console.log(res.command);
